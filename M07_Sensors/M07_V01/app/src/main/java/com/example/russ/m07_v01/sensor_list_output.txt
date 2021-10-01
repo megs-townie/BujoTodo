@@ -1,0 +1,33 @@
+
+A tethered Nexus 5 shows the following sensors are available.
+
+Typically, the emulators have a difficult time with simulating sensors.
+
+Sensor List=[
+ {Sensor name="MPU6515 Accelerometer", vendor="InvenSense", version=1, type=1, maxRange=19.613297, resolution=5.950928E-4, power=0.4, minDelay=5000},
+ {Sensor name="AK8963 Magnetometer", vendor="AKM", version=1, type=2, maxRange=4911.9995, resolution=0.14953613, power=5.0, minDelay=20000},
+ {Sensor name="AK8963 Magnetometer Uncalibrated", vendor="AKM", version=1, type=14, maxRange=4911.9995, resolution=0.14953613, power=5.0, minDelay=20000},
+ {Sensor name="MPU6515 Gyroscope", vendor="InvenSense", version=1, type=4, maxRange=34.906586, resolution=0.0010681152, power=3.2, minDelay=5000},
+ {Sensor name="MPU6515 Gyroscope Uncalibrated", vendor="InvenSense", version=1, type=16, maxRange=34.906586, resolution=0.0010681152, power=3.2, minDelay=5000},
+ {Sensor name="APDS-9930/QPDS-T930 Proximity & Light", vendor="Avago", version=2, type=8, maxRange=5.0, resolution=0.0, power=12.675, minDelay=0},
+ {Sensor name="APDS-9930/QPDS-T930 Proximity & Light", vendor="Avago", version=2, type=5, maxRange=10000.0, resolution=0.009994507, power=0.175, minDelay=0},
+ {Sensor name="BMP280 Barometer", vendor="BOSCH", version=1, type=6, maxRange=1100.0, resolution=0.009994507, power=0.004, minDelay=33333},
+ {Sensor name="Gravity", vendor="QTI", version=1, type=9, maxRange=19.613297, resolution=5.950928E-4, power=3.5999908, minDelay=5000},
+ {Sensor name="Linear Acceleration", vendor="QTI", version=1, type=10, maxRange=19.613297, resolution=5.950928E-4, power=3.5999908, minDelay=5000},
+ {Sensor name="Rotation Vector", vendor="QTI", version=1, type=11, maxRange=1.0, resolution=5.9604645E-8, power=8.599991, minDelay=5000},
+ {Sensor name="Step Detector", vendor="QTI", version=1, type=18, maxRange=1.0, resolution=1.0, power=0.3999939, minDelay=0},
+ {Sensor name="Step Counter", vendor="QTI", version=1, type=19, maxRange=1.0, resolution=1.0, power=0.3999939, minDelay=0},
+ {Sensor name="Significant Motion Detector", vendor="QTI", version=1, type=17, maxRange=1.0, resolution=1.0, power=0.3999939, minDelay=-1},
+ {Sensor name="Game Rotation Vector", vendor="QTI", version=1, type=15, maxRange=1.0, resolution=5.9604645E-8, power=3.5999908, minDelay=5000},
+ {Sensor name="GeoMagnetic Rotation Vector", vendor="QTI", version=1, type=20, maxRange=1.0, resolution=5.9604645E-8, power=5.399994, minDelay=20000},
+ {Sensor name="Orientation", vendor="QTI", version=1, type=3, maxRange=360.0, resolution=0.1, power=8.599991, minDelay=5000},
+ {Sensor name="Tilt Detector", vendor="QTI", version=1, type=22, maxRange=1.0, resolution=1.0, power=0.3999939, minDelay=0},
+ {Sensor name="MPU6515 Game Rotation Vector Secondary", vendor="InvenSense", version=1, type=15, maxRange=1.0, resolution=1.0, power=4.0, minDelay=5000},
+ {Sensor name="AMD", vendor="QTI", version=1, type=33171006, maxRange=1.0, resolution=1.0, power=0.3999939, minDelay=0},
+ {Sensor name="RMD", vendor="QTI", version=1, type=33171007, maxRange=1.0, resolution=1.0, power=0.3999939, minDelay=0},
+ {Sensor name="Basic Gestures", vendor="QTI", version=1, type=33171000, maxRange=7.0, resolution=1.0, power=0.3999939, minDelay=0},
+ {Sensor name="Tap", vendor="QTI", version=1, type=33171001, maxRange=6.0, resolution=1.0, power=0.3999939, minDelay=0},
+ {Sensor name="Facing", vendor="QTI", version=1, type=33171002, maxRange=3.0, resolution=1.0, power=0.3999939, minDelay=0},
+ {Sensor name="Tilt", vendor="QTI", version=1, type=33171003, maxRange=180.0, resolution=0.1, power=3.199997, minDelay=10000},
+ {Sensor name="Pedometer", vendor="QTI", version=1, type=33171009, maxRange=1.0, resolution=1.0, power=0.3999939, minDelay=0},
+ {Sensor name="PEDESTRIAN-ACTIVITY-MONITOR", vendor="QTI", version=1, type=33171010, maxRange=65535.0, resolution=1.0, power=0.3999939, minDelay=0}]

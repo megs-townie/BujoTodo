@@ -1,0 +1,5 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/newsarticle_detail_container"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:textSize="15px"
+    tools:context=".NewsArticleDetailActivity" tools:ignore="MergeRootFrame" />

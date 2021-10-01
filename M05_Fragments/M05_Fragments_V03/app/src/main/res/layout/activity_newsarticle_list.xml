@@ -1,0 +1,7 @@
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/newsarticle_list"
+    android:name="com.example.russ.m05_fragments_v03.NewsArticleListFragment"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_marginLeft="16dp" android:layout_marginRight="16dp"
+    android:textSize="15px"
+    tools:context=".NewsArticleListActivity" tools:layout="@android:layout/list_content" />
