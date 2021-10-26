@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,20 +24,43 @@ public class getWebServiceData extends Thread {
     String content = null;
     String dataUrl = "http:\\localhost:8081";
 
+    private boolean getNow = false;
+
     // delegate setup to return ball to caller
     public getResponse delegate = null;
     Ball b = null;
 
-    public getWebServiceData(String dataUrl){
+    public getWebServiceData(String dataUrl) {
         this.dataUrl = dataUrl;
     }
 
+    // let caller initiate JSON call
+    // by letting the thread out.
+    public void getJSONdata() {
+        synchronized (this) {
+            this.getNow = true;
+            notifyAll();  // tell thread to go!
+        }
+    }
 
     @Override
     public void run() {
 
-        // loop getting Web Service data
+        // loop getting Web Service data, but wait on call to synch
         while (true) {
+
+            // synch wait for boolean to give go-ahead
+            synchronized (this) {
+                while (!this.getNow) {
+                    try {
+                        wait();    // Wait to be told to go.
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            // reset boolean back so we loop once
+            this.getNow = false;
 
             URL url = null;
             HttpURLConnection urlConnection = null;
@@ -59,46 +83,25 @@ public class getWebServiceData extends Thread {
 
                 content = br.readLine();  // get the JSON string in one read
 
-
                 // Show the message:
-//                System.out.println("WebService content: " + content);
                 Log.w("sendMessage", "WebService content: " + content);
-//
-//                EditText editText = (EditText) findViewById(R.id.editText);
 
                 conn.disconnect();
 
                 /////////////////////////////////////////
-                // Make Network Animal from json string
-//                try {
-//                    JSONObject getAnimal = new JSONObject(content);
-//                    int x = getAnimal.getInt("pos_x");
-//                    int y = getAnimal.getInt("pos_y");
-//                    int dx = getAnimal.getInt("vel_x");
-//                    int dy = getAnimal.getInt("vel_y");
-//                    System.out.println("Output vals: x=" + x + " y=" + y + " dx=" + dx + " dy=" + dy);
-//
-//                    b = new Ball(Color.DKGRAY, (float) x, (float) y, (float) dx, (float) dy);
-//
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
+                // We could unpack the JSON data and add
+                // a ball accordingly, if ball data was sent.
+                //
+                // Instead, just make a random ball to show we
+                // got here.
+                BouncingBallView.addBall();  //static call, so OOP could be better
+
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            // bottom of While... give response
-//            delegate.getBallResponse(b);
-
-            // Wait a few seconds...
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
         }
     }
 }
+

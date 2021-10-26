@@ -18,7 +18,7 @@ import java.util.Formatter;
  */
 public class BouncingBallView extends View  {
 
-    private ArrayList<Ball> balls = new ArrayList<Ball>(); // list of Balls
+    private static ArrayList<Ball> balls = new ArrayList<Ball>(); // list of Balls
     private Ball ball_1;  // use this to reference first ball in arraylist
     private Box box;
 
@@ -74,13 +74,18 @@ public class BouncingBallView extends View  {
         this.setFocusableInTouchMode(true);
     }
 
+    public static void addBall(){
+        Log.v("BouncingBallView", "addBall");
+        balls.add(new Ball(Color.BLACK));
+        balls.add(new Ball(Color.WHITE));
+        Log.w("BouncingBallLog", "Just added black/white bouncing ball");
+
+    }
+
     // Called back to draw the view. Also called after invalidate().
     @Override
     protected void onDraw(Canvas canvas) {
-
-
         Log.v("BouncingBallView", "onDraw");
-
 
         // Draw the components
         box.draw(canvas);

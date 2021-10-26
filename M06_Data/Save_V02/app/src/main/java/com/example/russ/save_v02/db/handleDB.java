@@ -56,12 +56,45 @@ public class handleDB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String db_com = "CREATE TABLE " + TABLE_NAME + " (" +
-                _ID + " INTEGER PRIMARY KEY, " +
-                _NAME_COL + TEXT_TYPE + COMMA_SEP +
-                _DETAILS_COL + TEXT_TYPE + " )";
+//        String db_com = "CREATE TABLE " + TABLE_NAME + " (" +
+//                _ID + " INTEGER PRIMARY KEY, " +
+//                _NAME_COL + TEXT_TYPE + COMMA_SEP +
+//                _DETAILS_COL + TEXT_TYPE + " )";
+
+        // CREATE TABLE
+        String db_com =
+                "create table tbl1(ID INTEGER PRIMARY KEY    NOT NULL,\n" +
+                        "                  NAME  TEXT    NOT NULL,\n" +
+                        "                  DESC  CHAR(250),\n" +
+                        "                  COUNT INT,\n" +
+                        "                  LASTACCESS DATE)";
+
         Log.v("handleDB", "onCreate DB =" + db_com);
         db.execSQL(db_com);
+
+        // POPULATE TABLE
+        db_com =
+                "INSERT INTO tbl1 (NAME, DESC, COUNT, LASTACCESS )\n" +
+                        "VALUES \n" +
+                        "   (\"Russ1\", \"Description1\", 0, datetime(\"2020-01-01 00:00:00.000\")),\n" +
+                        "   (\"Russ2\", \"Description2\", 0, datetime(\"2020-01-01 00:00:00.000\")),\n" +
+                        "   (\"Russ3\", \"Description3\", 0, datetime(\"2020-01-01 00:00:00.000\")),\n" +
+                        "   (\"Russ4\", \"Description4\", 0, datetime(\"2020-01-01 00:00:00.000\")),\n" +
+                        "   (\"Russ5\", \"Description5\", 0, datetime(\"2020-01-01 00:00:00.000\"));";
+        Log.v("handleDB", "onCreate DB =" + db_com);
+        db.execSQL(db_com);
+
+
+        // UPDATE COUNT
+        db_com = "UPDATE tbl1 SET COUNT = COUNT + 1 WHERE ID = 1";
+        Log.v("handleDB", "onCreate DB =" + db_com);
+        db.execSQL(db_com);
+
+        // UPDATE DATE of LASTACCESS
+        db_com = "UPDATE tbl1 SET LASTACCESS = datetime('now') where ID = 3;";
+        Log.v("handleDB", "onCreate DB =" + db_com);
+        db.execSQL(db_com);
+
 
     }
 
