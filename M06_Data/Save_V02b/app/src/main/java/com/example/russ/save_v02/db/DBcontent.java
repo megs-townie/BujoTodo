@@ -22,9 +22,9 @@ public class DBcontent {
      */
 //    public static List<AnimalItem> ITEMS = new ArrayList<AnimalItem>();
     public static List<AnimalItem> ITEMS;
-    public List<AnimalItem> getITEMS() {
-        return ITEMS;
-    }
+//    public List<AnimalItem> getITEMS() {
+//        return ITEMS;
+//    }
 
 
     /**
@@ -54,12 +54,12 @@ public class DBcontent {
         Log.v("handleDB", "DBcontent constructor");
 
 
-        // Sleep and ensure a threading issue
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        // Sleep and ensure a threading issue
+//        try {
+//            Thread.sleep(10000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
         dbRaw = new handleDB(context, DATABASE_NAME, null, DATABASE_VERSION);
 
@@ -71,24 +71,6 @@ public class DBcontent {
             Log.v("handleDB", "DBcontent no rows in DB...add some");
 
             // NOTE: id not used on insert, auto-increment takes care of it
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
-            dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
             dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
             dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
             dbRaw.addAnimal(new AnimalItem("1", "dog", "Tucker is an awesome puppy."));
