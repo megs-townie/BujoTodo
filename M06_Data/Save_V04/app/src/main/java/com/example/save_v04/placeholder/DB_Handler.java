@@ -77,7 +77,7 @@ public class DB_Handler extends SQLiteOpenHelper implements DB_Interface {
 
     @Override
     public int save(CarModel carModel) {
-        String command = "INSERT INTO CarModels(str_col,num_col) VALUES('" + carModel.getModelName() + "', " + carModel.getModelNumber() + ")";
+        //String command = "INSERT INTO CarModels(str_col,num_col) VALUES('" + carModel.getModelName() + "', " + carModel.getModelNumber() + ")";
 
         Log.v("DB_Handler", "add=>  " + carModel.toString());
 
