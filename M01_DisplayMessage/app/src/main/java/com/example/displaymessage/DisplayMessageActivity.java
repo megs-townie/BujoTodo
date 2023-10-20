@@ -14,7 +14,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_display_message);
+        setContentView(R.layout.activity_display_message);
 
         // Receive the Intent, get the message
         Intent intent = getIntent();
@@ -42,12 +42,15 @@ public class DisplayMessageActivity extends AppCompatActivity {
                 case "green":
                 textView.setBackgroundColor(Color.GREEN);
                 break;
+            case "black":
+                textView.setBackgroundColor(Color.BLACK);
+                break;
             default: // Color not found...just use dark gray
                 textView.setBackgroundColor(Color.DKGRAY);
         }
 
         // Add to the text
-        //textView.setText(message + "\n\n  AHA!!!!  I have changed the text colour!!!");
+        textView.setText(message + "\n\n  The colour has now changed!");
 
 
         // Start logging stuff we can find out
@@ -60,7 +63,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
         Log.v("SimpleUserInterface", " getText.length =>" + textView.getText().length());
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(5000);
         } catch (java.lang.InterruptedException e) {
             Log.v("SimpleUserInterface", "java.lang.InterruptedException: " + e.getMessage());
         }

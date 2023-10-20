@@ -6,6 +6,6 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:paddingBottom="16dp"
-    tools:context="com.example.p3.DisplayMessageActivity">
+    tools:context="com.example.displaymessage.DisplayMessageActivity">
 
 </RelativeLayout>
