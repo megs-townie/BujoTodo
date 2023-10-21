@@ -3,49 +3,30 @@ package com.example.m03_bounce;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-
 import java.util.ArrayList;
-import java.util.Formatter;
+import java.util.Random;
 
 /**
  * Created by Russ on 08/04/2014.
  */
-public class BouncingBallView extends View  {
+public class BouncingBallView extends View {
 
     private ArrayList<Ball> balls = new ArrayList<Ball>(); // list of Balls
     private Ball ball_1;  // use this to reference first ball in arraylist
     private Box box;
-
-    // Status message to show Ball's (x,y) position and speed.
-    private StringBuilder statusMsg = new StringBuilder();
-    private Formatter formatter = new Formatter(statusMsg);
-    private Paint paint;
-
-    private int string_line = 1;  //
-    private int string_x = 10;
-    private int string_line_size = 40;  // pixels to move down one line
-    private ArrayList<String> debug_dump1 = new ArrayList();
-    private String[] debug_dump2 = new String[200];
 
     // For touch inputs - previous touch (x, y)
     private float previousX;
     private float previousY;
 
     public BouncingBallView(Context context, AttributeSet attrs) {
-        super(context, attrs);;
+        super(context, attrs);
 
         Log.v("BouncingBallView", "Constructor BouncingBallView");
-
-        // Init the array
-        for (int i = 1; i < 200; i++) {
-            debug_dump2[i] = "  ";
-        }
 
         // create the box
         box = new Box(Color.BLACK);  // ARGB
@@ -59,14 +40,6 @@ public class BouncingBallView extends View  {
         balls.add(new Ball(Color.CYAN));
         Log.w("BouncingBallLog", "Just added another bouncing ball");
 
-        // Set up status message on paint object
-        paint = new Paint();
-
-        // Set the font face and size of drawing text
-        paint.setTypeface(Typeface.MONOSPACE);
-        paint.setTextSize(32);
-        paint.setColor(Color.CYAN);
-
         // To enable keypad
         this.setFocusable(true);
         this.requestFocus();
@@ -78,9 +51,7 @@ public class BouncingBallView extends View  {
     @Override
     protected void onDraw(Canvas canvas) {
 
-
         Log.v("BouncingBallView", "onDraw");
-
 
         // Draw the components
         box.draw(canvas);
@@ -91,42 +62,6 @@ public class BouncingBallView extends View  {
             b.draw(canvas);  //draw each ball in the list
             b.moveWithCollisionDetection(box);  // Update the position of the ball
         }
-
-        // Draw the status message to the screen
-//        statusMsg.delete(0, statusMsg.length());   // Empty buffer
-//        formatter.format("Ball@(%3.0f,%3.0f),Speed=(%2.0f,%2.0f)", ball_1.x, ball_1.y,
-//                ball_1.speedX, ball_1.speedY);
-//        canvas.drawText(statusMsg.toString(), 10, 30, paint);
-
-
-        // inc-rotate string_line
-        if (string_line * string_line_size > box.yMax) {
-            string_line = 1;  // first line is status
-            debug_dump1.clear();
-        } else {
-            string_line++;
-        }
-
-        // inc-rotate string_x
-        if (string_x > box.xMax) {
-            string_x = 10;  // first line is status
-        } else {
-            string_x++;
-        }
-
-        // Array of String (uses more mem, but changes less)
-//        debug_dump2[string_line] = "Ball(" + balls.size() + " " + ball_1.x + " ," + ball_1.y + ")";
-//        for (int i = 1; i < debug_dump2.length; i++) {
-//            canvas.drawText(debug_dump2[i], string_x, i * string_line_size, paint);
-//        }
-
-        // ArrayList (more new's, allocation of RAM)
-//        String newString = new String("AL-Ball(" + string_line + "  " + ball_1.x + " ," + ball_1.y + ") ");
-//        debug_dump1.add(newString);
-//        for (int i = 1; i < debug_dump1.size(); i++) {
-//            canvas.drawText(debug_dump1.get(i), 700, i * string_line_size, paint);
-//        }
-
 
         // Delay on UI thread causes big problems!
         // Simulates doing busy work or waits on UI (DB connections, Network I/O, ....)
@@ -151,7 +86,6 @@ public class BouncingBallView extends View  {
         box.set(0, 0, w, h);
         Log.w("BouncingBallLog", "onSizeChanged w=" + w + " h=" + h);
     }
-
 
     // Touch-input handler
     @Override
@@ -191,4 +125,21 @@ public class BouncingBallView extends View  {
         return true;  // Event handled
     }
 
+    Random rand = new Random();
+    // called when button is pressed
+    public void RussButtonPressed() {
+        Log.d("BouncingBallView  BUTTON", "User tapped the  button ... VIEW");
+
+        //get half of the width and height as we are working with a circle
+        int viewWidth = 300;   // this.getMeasuredWidth();
+        int viewHeight = 300;  // this.getMeasuredHeight();
+
+        // make random x,y, velocity
+        int x = rand.nextInt(viewWidth);
+        int y = rand.nextInt(viewHeight);
+        int dx = rand.nextInt(20);
+        int dy = rand.nextInt(20);
+
+        balls.add(new Ball(Color.RED, x, y, dx, dy));  // add ball at every touch event
+    }
 }
