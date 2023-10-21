@@ -59,11 +59,11 @@ public class DisplayMessageActivity extends AppCompatActivity {
         Log.v("SimpleUserInterface", " getText =>" + textView.getText());
         Log.v("SimpleUserInterface", " getText.length =>" + textView.getText().length());
 
-        try {
-            Thread.sleep(1000);
-        } catch (java.lang.InterruptedException e) {
-            Log.v("SimpleUserInterface", "java.lang.InterruptedException: " + e.getMessage());
-        }
+   //     try {
+     //       Thread.sleep(1000);
+       // } catch (java.lang.InterruptedException e) {
+         //   Log.v("SimpleUserInterface", "java.lang.InterruptedException: " + e.getMessage());
+        //}
 
 
     }
