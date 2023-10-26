@@ -19,8 +19,11 @@ import java.util.Formatter;
 public class BouncingBallView extends View  {
 
     private ArrayList<Ball> balls = new ArrayList<Ball>(); // list of Balls
+    private ArrayList<Square> squares = new ArrayList<>(); // list of squares
     private Ball ball_1;  // use this to reference first ball in arraylist
     private Box box;
+    private Rectangle scoreRectangle;
+    private int score = 0;
 
     // Status message to show Ball's (x,y) position and speed.
     private StringBuilder statusMsg = new StringBuilder();
@@ -37,6 +40,16 @@ public class BouncingBallView extends View  {
     private float previousX;
     private float previousY;
 
+    private int generateRandomColor() {
+        int alpha = 255;
+        int red = (int)(Math.random() * 256);
+        int green = (int)(Math.random() * 256);
+        int blue = (int)(Math.random() * 256);
+
+        return Color.argb(alpha, red, green, blue);
+    }
+
+
     public BouncingBallView(Context context, AttributeSet attrs) {
         super(context, attrs);;
 
@@ -48,7 +61,7 @@ public class BouncingBallView extends View  {
         }
 
         // create the box
-        box = new Box(Color.BLACK);  // ARGB
+        box = new Box(Color.BLACK);
 
         //ball_1 = new Ball(Color.GREEN);
         balls.add(new Ball(Color.GREEN));
@@ -58,6 +71,15 @@ public class BouncingBallView extends View  {
         //ball_2 = new Ball(Color.CYAN);
         balls.add(new Ball(Color.CYAN));
         Log.w("BouncingBallLog", "Just added another bouncing ball");
+
+        // Initialize scoreRectangle in the center of the Box
+        scoreRectangle = new Rectangle(Color.RED);
+        float rectWidth = 200f;  // Adjust the width as needed
+        float rectHeight = 100f; // Adjust the height as needed
+        float rectX = (box.xMax - rectWidth) / 2;
+        float rectY = (box.yMax - rectHeight) / 2;
+        scoreRectangle.init(rectX, rectY, rectWidth, rectHeight);
+
 
         // Set up status message on paint object
         paint = new Paint();
@@ -83,20 +105,31 @@ public class BouncingBallView extends View  {
 
 
         // Draw the components
+
         box.draw(canvas);
-        //canvas.drawARGB(0,25,25,25);
-        //canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+        scoreRectangle.draw(canvas);
 
         for (Ball b : balls) {
-            b.draw(canvas);  //draw each ball in the list
-            b.moveWithCollisionDetection(box);  // Update the position of the ball
+            b.draw(canvas);
+            b.moveWithCollisionDetection(box);
+
+            if (scoreRectangle.intersects(b.x, b.y, b.radius)) {
+                score++;
+                scoreRectangle.changeColor(generateRandomColor());
+                Log.d("SCORE", "Score: " + score);
+            }
         }
 
-        // Draw the status message to the screen
-//        statusMsg.delete(0, statusMsg.length());   // Empty buffer
-//        formatter.format("Ball@(%3.0f,%3.0f),Speed=(%2.0f,%2.0f)", ball_1.x, ball_1.y,
-//                ball_1.speedX, ball_1.speedY);
-//        canvas.drawText(statusMsg.toString(), 10, 30, paint);
+        for (Square s : squares) {
+            s.draw(canvas);
+            s.moveWithCollisionDetection(box);
+
+            if (scoreRectangle.intersects(s.x, s.y, s.side)) {
+                score++;
+                scoreRectangle.changeColor(generateRandomColor());
+                Log.d("SCORE", "Score: " + score);
+            }
+        }
 
 
         // inc-rotate string_line
@@ -114,33 +147,7 @@ public class BouncingBallView extends View  {
             string_x++;
         }
 
-        // Array of String (uses more mem, but changes less)
-//        debug_dump2[string_line] = "Ball(" + balls.size() + " " + ball_1.x + " ," + ball_1.y + ")";
-//        for (int i = 1; i < debug_dump2.length; i++) {
-//            canvas.drawText(debug_dump2[i], string_x, i * string_line_size, paint);
-//        }
 
-        // ArrayList (more new's, allocation of RAM)
-//        String newString = new String("AL-Ball(" + string_line + "  " + ball_1.x + " ," + ball_1.y + ") ");
-//        debug_dump1.add(newString);
-//        for (int i = 1; i < debug_dump1.size(); i++) {
-//            canvas.drawText(debug_dump1.get(i), 700, i * string_line_size, paint);
-//        }
-
-
-        // Delay on UI thread causes big problems!
-        // Simulates doing busy work or waits on UI (DB connections, Network I/O, ....)
-        //  I/Choreographer? Skipped 64 frames!  The application may be doing too much work on its main thread.
-//        try {
-//            Thread.sleep(1000);
-//        } catch (InterruptedException e) {
-//        }
-
-        // Check what happens if you draw the box last
-        //box.draw(canvas);
-
-        // Check what happens if you don't call invalidate (redraw only when stopped-started)
-        // Force a re-draw
         this.invalidate();
     }
 
@@ -159,27 +166,35 @@ public class BouncingBallView extends View  {
         float currentX = event.getX();
         float currentY = event.getY();
         float deltaX, deltaY;
-        float scalingFactor = 5.0f / ((box.xMax > box.yMax) ? box.yMax : box.xMax);
+
         switch (event.getAction()) {
             case MotionEvent.ACTION_MOVE:
-                // Modify rotational angles according to movement
                 deltaX = currentX - previousX;
                 deltaY = currentY - previousY;
-                ball_1.speedX += deltaX * scalingFactor;
-                ball_1.speedY += deltaY * scalingFactor;
-                //Log.w("BouncingBallLog", " Xspeed=" + ball_1.speedX + " Yspeed=" + ball_1.speedY);
-                Log.w("BouncingBallLog", "x,y= " + previousX + " ," + previousY + "  Xdiff=" + deltaX + " Ydiff=" + deltaY);
-                balls.add(new Ball(Color.BLUE, previousX, previousY, deltaX, deltaY));  // add ball at every touch event
 
-                // A way to clear list when too many balls
-                if (balls.size() > 20) {
-                    // leave first ball, remove the rest
-                    Log.v("BouncingBallLog", "too many balls, clear back to 1");
-                    balls.clear();
-                    balls.add(new Ball(Color.RED));
-                    ball_1 = balls.get(0);  // points ball_1 to the first (zero-ith) element of list
+                float swipeSpeed = (float) Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                float scalingFactor = 0.3f;
+                deltaX *= scalingFactor;
+                deltaY *= scalingFactor;
+
+                if (swipeSpeed > 200) {
+                    squares.add(new Square(generateRandomColor(), previousX, previousY, deltaX, deltaY));
+                } else {
+                    balls.add(new Ball(generateRandomColor(), previousX, previousY, deltaX, deltaY));
+                    ball_1.speedX += deltaX;
+                    ball_1.speedY += deltaY;
                 }
 
+                if (balls.size() > 20) {
+                    balls.clear();
+                    balls.add(new Ball(generateRandomColor(), previousX, previousY, deltaX, deltaY));
+                    ball_1 = balls.get(0);
+                }
+
+                if (squares.size() > 20) {
+                    squares.clear();
+                    squares.add(new Square(generateRandomColor(), previousX, previousY, deltaX, deltaY));
+                }
         }
         // Save current x, y
         previousX = currentX;
