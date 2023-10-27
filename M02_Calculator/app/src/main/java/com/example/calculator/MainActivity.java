@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,28 +16,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Action for each button
-        Button btnAdd = findViewById(R.id.b_Add);
+        ImageButton btnAdd = findViewById(R.id.b_Add);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 performCalculation('+');
             }
         });
 
-        Button btnSubtract = findViewById(R.id.b_Subtract);
+        ImageButton btnSubtract = findViewById(R.id.b_Subtract);
         btnSubtract.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 performCalculation('-');
             }
         });
 
-        Button btnMultiply = findViewById(R.id.b_Multiply);
+        ImageButton btnMultiply = findViewById(R.id.b_Multiply);
         btnMultiply.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 performCalculation('*');
             }
         });
 
-        Button btnDivide = findViewById(R.id.b_Divide);
+        ImageButton btnDivide = findViewById(R.id.b_Divide);
         btnDivide.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 performCalculation('/');

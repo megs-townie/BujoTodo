@@ -4,73 +4,116 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
+    <!-- EditText for num1 -->
     <EditText
         android:id="@+id/editTextN1"
         android:layout_width="155dp"
         android:layout_height="48dp"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="First Number"
+        android:textColor="#CC7F2B"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="29dp"
+        android:ems="10"
+        android:hint="First Number"
+        android:textColorHint="#99A3A8"
+        android:inputType="number" />
 
+    <!-- EditText for num2 -->
     <EditText
         android:id="@+id/editTextN2"
-        android:layout_width="179dp"
-        android:layout_height="47dp"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="Second Number"
+        android:layout_width="155dp"
+        android:layout_height="48dp"
+        android:textColor="#CC7F2B"
+        android:layout_alignTop="@+id/editTextN1"
         android:layout_toEndOf="@+id/editTextN1"
-        android:layout_alignParentTop="true" />
+        android:layout_marginStart="50dp"
+        android:ems="10"
+        android:hint="Second Number"
+        android:textColorHint="#99A3A8"
+        android:inputType="number" />
+
 
     <EditText
         android:id="@+id/editTextNumAns"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextN2"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="68dp"
         android:ems="10"
-        android:inputType="number"
-        android:hint="Total"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:layout_below="@+id/editTextN2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:hint="Total"
+        android:textColorHint="#99A3A8"
+        android:inputType="number"
+        android:minWidth="155dp"
+        android:minHeight="48dp"
+        android:textColor="#CC7F2B"/>
 
-    <Button
-        android:id="@+id/b_Add"
+    <!-- A LinearLayout that is centralized in the parent RelativeLayout -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
-        android:layout_below="@+id/editTextNumAns"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="16dp" />
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/b_Subtract"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Subtract"
-        android:layout_toRightOf="@+id/b_Add"
-        android:layout_alignTop="@+id/b_Add"
-        android:layout_marginStart="16dp" />
+        <!-- Horizontal LinearLayout for the top row of buttons -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/b_Multiply"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Multiply"
-        android:layout_below="@+id/b_Add"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="16dp" />
+            <!-- Add Button -->
+            <ImageButton
+                android:id="@+id/b_Add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:contentDescription="Add"
+                android:src="@drawable/addition" />
 
-    <Button
-        android:id="@+id/b_Divide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Divide"
-        android:layout_toRightOf="@+id/b_Multiply"
-        android:layout_alignTop="@+id/b_Multiply"
-        android:layout_marginStart="16dp" />
+            <!-- Subtract Button -->
+            <ImageButton
+                android:id="@+id/b_Subtract"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:contentDescription="Subtract"
+                android:src="@drawable/subtract" />
+        </LinearLayout>
 
+        <!-- Small vertical spacing between the two rows -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <!-- Horizontal LinearLayout for the bottom row of buttons -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Multiply Button -->
+            <ImageButton
+                android:id="@+id/b_Multiply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:contentDescription="Multiply"
+                android:src="@drawable/multiply" />
+
+            <!-- Divide Button -->
+            <ImageButton
+                android:id="@+id/b_Divide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:contentDescription="Divide"
+                android:src="@drawable/division" />
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
