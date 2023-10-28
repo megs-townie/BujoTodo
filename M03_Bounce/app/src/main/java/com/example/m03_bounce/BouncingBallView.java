@@ -131,13 +131,13 @@ public class BouncingBallView extends View {
         Log.d("BouncingBallView  BUTTON", "User tapped the  button ... VIEW");
 
         //get half of the width and height as we are working with a circle
-        int viewWidth = 300;   // this.getMeasuredWidth();
-        int viewHeight = 300;  // this.getMeasuredHeight();
+        int viewWidth = this.getMeasuredWidth();
+        int viewHeight = this.getMeasuredHeight();
 
         // make random x,y, velocity
         int x = rand.nextInt(viewWidth);
         int y = rand.nextInt(viewHeight);
-        int dx = rand.nextInt(20);
+        int dx = rand.nextInt(50);
         int dy = rand.nextInt(20);
 
         balls.add(new Ball(Color.RED, x, y, dx, dy));  // add ball at every touch event

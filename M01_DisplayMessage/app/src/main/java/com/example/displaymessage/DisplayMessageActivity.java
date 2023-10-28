@@ -39,9 +39,6 @@ public class DisplayMessageActivity extends AppCompatActivity {
             case "blue":
                 textView.setBackgroundColor(Color.BLUE);
                 break;
-                case "green":
-                textView.setBackgroundColor(Color.GREEN);
-                break;
             default: // Color not found...just use dark gray
                 textView.setBackgroundColor(Color.DKGRAY);
         }
@@ -60,7 +57,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
         Log.v("SimpleUserInterface", " getText.length =>" + textView.getText().length());
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(20000);
         } catch (java.lang.InterruptedException e) {
             Log.v("SimpleUserInterface", "java.lang.InterruptedException: " + e.getMessage());
         }
