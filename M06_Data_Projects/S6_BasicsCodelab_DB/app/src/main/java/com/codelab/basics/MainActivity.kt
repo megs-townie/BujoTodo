@@ -20,6 +20,7 @@ package com.codelab.basics
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.animateContentSize
@@ -58,25 +59,38 @@ import androidx.compose.ui.unit.dp
 import com.codelab.basics.ui.theme.BasicsCodelabTheme
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Get records from the DB
+        val DBtest = DBClass(this@MainActivity)
+        //val get2DRecords = DBtest.records  // returns 2D array for listing data
+//        Log.d("CodeLab_DB", "onCreate: ")
+//        for (row in get2DRecords.toList()) {
+//            Log.d("CodeLab_DB", row)
+//        }
+
         setContent {
             BasicsCodelabTheme {
-                MyApp(modifier = Modifier.fillMaxSize())
+                MyApp(modifier = Modifier.fillMaxSize()
+                , names = DBtest.get2DRecords().toList())
             }
         }
     }
 }
 
 @Composable
-fun MyApp(modifier: Modifier = Modifier) {
+fun MyApp(modifier: Modifier = Modifier,
+          names: List<Array<String>>
+) {
     var shouldShowOnboarding by rememberSaveable { mutableStateOf(true) }
 
     Surface(modifier, color = MaterialTheme.colorScheme.background) {
         if (shouldShowOnboarding) {
             OnboardingScreen(onContinueClicked = { shouldShowOnboarding = false })
         } else {
-            Greetings()
+            Greetings(names=names)
         }
     }
 }
@@ -101,20 +115,24 @@ fun OnboardingScreen(
     }
 }
 
+
 @Composable
 private fun Greetings(
     modifier: Modifier = Modifier,
-    names: List<String> = List(1000) { "$it" }
+    names: List<Array<String>>
+    //names: List<String> = List(1000) { "$it" }   // Original sample was list of 1000 ints
 ) {
     LazyColumn(modifier = modifier.padding(vertical = 4.dp)) {
         items(items = names) { name ->
             Greeting(name = name)
+            Log.d("CodeLab_DB", "name[0] = $name[0]")
+            Log.d("CodeLab_DB", "name[1] = $name[1]")
         }
     }
 }
 
 @Composable
-private fun Greeting(name: String) {
+private fun Greeting(name: Array<String>) {
     Card(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primary
@@ -122,12 +140,21 @@ private fun Greeting(name: String) {
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
         CardContent(name)
+        Log.d("CodeLab_DB", "Greeting: ")
     }
 }
 
 @Composable
-private fun CardContent(name: String) {
+private fun CardContent(name: Array<String>) {
     var expanded by remember { mutableStateOf(false) }
+
+    Log.d("CodeLab_DB", "name = $name ")
+    Log.d("CodeLab_DB", "name = $name[0] ")
+    Log.d("CodeLab_DB", "name = $name[1] ")
+    val n0 = name[0]  // try log of a simple val
+    val n1 = name[1]
+    Log.d("CodeLab_DB", "n0 = $n0 ")
+    Log.d("CodeLab_DB", "n1 = $n1 ")
 
     Row(
         modifier = Modifier
@@ -146,14 +173,15 @@ private fun CardContent(name: String) {
         ) {
             Text(text = "Hello, ")
             Text(
-                text = name, style = MaterialTheme.typography.headlineMedium.copy(
+                text = name[0], style = MaterialTheme.typography.headlineMedium.copy(
                     fontWeight = FontWeight.ExtraBold
                 )
             )
             if (expanded) {
                 Text(
-                    text = ("Composem ipsum color sit lazy, " +
-                        "padding theme elit, sed do bouncy. ").repeat(4),
+                    text = (name[1])
+//                    text = ("Composem ipsum color sit lazy, " +
+//                            "padding theme elit, sed do bouncy. ").repeat(4),
                 )
             }
         }
@@ -176,13 +204,13 @@ private fun CardContent(name: String) {
     uiMode = UI_MODE_NIGHT_YES,
     name = "DefaultPreviewDark"
 )
-@Preview(showBackground = true, widthDp = 320)
-@Composable
-fun DefaultPreview() {
-    BasicsCodelabTheme {
-        Greetings()
-    }
-}
+//@Preview(showBackground = true, widthDp = 320)
+//@Composable
+//fun DefaultPreview() {
+//    BasicsCodelabTheme {
+//        Greetings()
+//    }
+//}
 
 @Preview(showBackground = true, widthDp = 320, heightDp = 320)
 @Composable
@@ -192,10 +220,10 @@ fun OnboardingPreview() {
     }
 }
 
-@Preview
-@Composable
-fun MyAppPreview() {
-    BasicsCodelabTheme {
-        MyApp(Modifier.fillMaxSize())
-    }
-}
+//@Preview
+//@Composable
+//fun MyAppPreview() {
+//    BasicsCodelabTheme {
+//        MyApp(Modifier.fillMaxSize())
+//    }
+//}
