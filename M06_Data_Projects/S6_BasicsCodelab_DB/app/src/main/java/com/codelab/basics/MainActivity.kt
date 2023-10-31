@@ -65,18 +65,16 @@ class MainActivity : ComponentActivity() {
 
         // Get records from the DB
         val DBtest = DBClass(this@MainActivity)
-        //val get2DRecords = DBtest.records  // returns 2D array for listing data
-//        Log.d("CodeLab_DB", "onCreate: ")
-//        for (row in get2DRecords.toList()) {
-//            Log.d("CodeLab_DB", row)
-//        }
+        Log.d("CodeLab_DB", "onCreate: ")
 
+        // Then the real data
         setContent {
             BasicsCodelabTheme {
                 MyApp(modifier = Modifier.fillMaxSize()
                 , names = DBtest.get2DRecords().toList())
             }
         }
+
     }
 }
 
@@ -85,6 +83,7 @@ fun MyApp(modifier: Modifier = Modifier,
           names: List<Array<String>>
 ) {
     var shouldShowOnboarding by rememberSaveable { mutableStateOf(true) }
+    var invalidate by remember { mutableStateOf(names) }
 
     Surface(modifier, color = MaterialTheme.colorScheme.background) {
         if (shouldShowOnboarding) {

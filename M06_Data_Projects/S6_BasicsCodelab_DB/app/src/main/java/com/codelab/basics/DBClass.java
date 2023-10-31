@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.concurrent.Executor;
+
 
 /**
  * Created by w0091766 on 4/29/2016.
@@ -47,13 +49,13 @@ public class DBClass extends SQLiteOpenHelper {
 
     // Return 2D String array of the records suitable to display
     // master-detail type list data
-    public String[][] get2DRecords(){
+    public String[][] get2DRecords() {
         // Real code would select * from DB table and populate
         // the first string with a title, and the 2nd string
         // with details which could be a concat of remaining
         // fields
 
-        Log.d("DBClass.get2DRecords", "Start");
+        Log.d("DBClass.get2DRecords", "Start===========================");
         SQLiteDatabase db = this.getReadableDatabase();
 
         // Define a projection that specifies which columns from the database
@@ -76,7 +78,7 @@ public class DBClass extends SQLiteOpenHelper {
         );
 
         // Returned Array is size of ResultSet
-        Log.d("DBClass.get2DRecords", "c.getCount()=" + c.getCount() );
+        Log.d("DBClass.get2DRecords", "c.getCount()=" + c.getCount());
         String[][] newArray = new String[c.getCount()][2];
 
         c.moveToFirst();
@@ -87,9 +89,8 @@ public class DBClass extends SQLiteOpenHelper {
         String keeperKey = "";
 
         do {
-//            for (; c.moveToNext(); ) {
             int pos = c.getPosition();
-            Log.d("DBClass.get2DRecords", "pos=" + pos );
+            Log.d("DBClass.get2DRecords", "pos=" + pos);
 
             newArray[pos][0] = "";
             newArray[pos][1] = "";          // init so we can append later
@@ -105,7 +106,7 @@ public class DBClass extends SQLiteOpenHelper {
                         value = c.getString(i);
                         break;
                 }
-                Log.d("DBClass.get2DRecords", "c.getPosition()=pos=" + pos );
+                Log.d("DBClass.get2DRecords", "c.getPosition()=pos=" + pos);
                 Log.d("DBClass.get2DRecords", "key=" + key + " value=" + value);
                 newArray[pos][0] += key;
                 newArray[pos][1] += value;
@@ -114,42 +115,37 @@ public class DBClass extends SQLiteOpenHelper {
             // Uncomment next line, key is better?
             newArray[pos][0] = keeperKey;    // Key is name of record
             Log.d("DBClass.get2DRecords", "Next Row");
-        } while  (c.moveToNext() );  // Do while there is a next
+        } while (c.moveToNext());  // Do while there is a next
 
-        Log.d("DBClass.get2DRecords", "Dump array" );
+        Log.d("DBClass.get2DRecords", "Dump array");
         for (String[] i : newArray) {
             for (String j : i) {
-                Log.d("DBClass.get2DRecords", "j=>" + j );
+                Log.d("DBClass.get2DRecords", "j=>" + j);
             }
         }
 
+        Log.d("DBClass.get2DRecords", "Sleep ..........................");
 
-//        // Some debug code
-//        String[][] newArrayTemp = new String[2][2];
-//        newArrayTemp[0][0] = "France";
-//        newArrayTemp[0][1] = "Blue";
-//        newArrayTemp[1][0] = "Ireland";
-//        newArrayTemp[1][1] = "Green";
+//        // Slow down just for fun to see what happens
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+
+        Log.d("DBClass.get2DRecords", "End  ===========================");
         return newArray;
     }
 
 
-
-//    // Return 2D String array of the records suitable to display
-//    // master-detail type list data
-//    public String[][] get2DRecords(){
-//        // currently test code returning a test array
-//        // Real code would select * from DB table and populate
-//        // the first string with a title, and the 2nd string
-//        // with details which could be a concat of remaining
-//        // fields
-//
-//        String[][] newArray = new String[2][2];
-//        newArray[0][0] = "France";
-//        newArray[0][1] = "Blue";
-//        newArray[1][0] = "Ireland";
-//        newArray[1][1] = "Green";
-//
-//        return newArray;
-//    }
+    // Return 2D String array of the records suitable to display
+    // master-detail type list data ... DEBUG version
+    public String[][] default_get2DRecords(){
+        String[][] newArray = new String[2][2];
+        newArray[0][0] = "Default";
+        newArray[0][1] = "Data";
+        newArray[1][0] = "Default2";
+        newArray[1][1] = "Data2";
+        return newArray;
+    }
 }

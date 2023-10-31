@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                     String key = "";
                     String value = "";
 
-                    for (; c.moveToNext(); ) {
+                    do {
                         int colCount = c.getColumnCount();
                         for (int i = 0; i < colCount; ++i) {
                             switch (c.getType(i)) {
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         Log.d("Save_v03", "Next Row");
                         result += "\n";
-                    }
+                    } while (c.moveToNext());
                 }
 
                 Log.d("Save_v03", "Sleep ..........................");

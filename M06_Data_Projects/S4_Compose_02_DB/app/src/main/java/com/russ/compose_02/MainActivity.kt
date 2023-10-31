@@ -127,7 +127,7 @@ class MainActivity : ComponentActivity() {
                         result += "\n"
                     }
                 }
-                Log.d("Save_v03", "Sleep ..........................")
+                val d = Log.d("Save_v03", "Sleep ..........................")
                 try {
                     Thread.sleep(5000)
                 } catch (e: InterruptedException) {
