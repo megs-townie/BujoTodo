@@ -218,4 +218,6 @@ public class BouncingBallView extends View implements SensorEventListener {
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         Log.v("onAccuracyChanged", "event=" + sensor.toString());
     }
+
+    public void callMe(){}
 }
