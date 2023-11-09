@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dimension for image button margin -->
+    <dimen name="image_button_margin">16dp</dimen>
+
+    <!-- Dimension for image button size -->
+    <dimen name="image_button_size">72dp</dimen>
+
+    <!-- Text size for title -->
+    <dimen name="title_text_size">24sp</dimen>
+</resources>
