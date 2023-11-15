@@ -148,11 +148,12 @@ public class BouncingBallView extends View implements SensorEventListener {
 
     // Called back when the view is first created or its size changes.
     @Override
-    public void onSizeChanged(int w, int h, int oldW, int oldH) {
-        // Set the movement bounds for the ball
-        box.set(0, 0, w, h);
-        Log.w("BouncingBallLog", "onSizeChanged w=" + w + " h=" + h);
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        // Now that we have the view's size, create the maze
+        Maze maze = new Maze(w, h);
     }
+
 
 
     // Touch-input handler
