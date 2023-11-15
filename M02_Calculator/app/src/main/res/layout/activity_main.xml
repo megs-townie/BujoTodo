@@ -1,119 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    tools:context=".MainActivity">
 
-    <!-- EditText for num1 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.104"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.936" />
+
     <EditText
         android:id="@+id/editTextN1"
         android:layout_width="155dp"
         android:layout_height="48dp"
-        android:textColor="#CC7F2B"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="First Number"
-        android:textColorHint="#99A3A8"
-        android:inputType="number" />
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- EditText for num2 -->
     <EditText
         android:id="@+id/editTextN2"
-        android:layout_width="155dp"
-        android:layout_height="48dp"
-        android:textColor="#CC7F2B"
-        android:layout_alignTop="@+id/editTextN1"
-        android:layout_toEndOf="@+id/editTextN1"
-        android:layout_marginStart="50dp"
+        android:layout_width="179dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="Second Number"
-        android:textColorHint="#99A3A8"
-        android:inputType="number" />
-
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/editTextN1"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextNumAns"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextN2"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="86dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="56dp"
         android:ems="10"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:hint="Total"
-        android:textColorHint="#99A3A8"
-        android:inputType="number"
-        android:minWidth="155dp"
-        android:minHeight="48dp"
-        android:textColor="#CC7F2B"/>
+        android:inputType= "none"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextN2" />
 
-    <!-- A LinearLayout that is centralized in the parent RelativeLayout -->
-    <LinearLayout
+    <Button
+        android:id="@+id/b_Add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumAns"
+        app:layout_constraintVertical_bias="0.082" />
 
-        <!-- Horizontal LinearLayout for the top row of buttons -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:text="SUBTRACT"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        tools:layout_editor_absoluteX="146dp" />
 
-            <!-- Add Button -->
-            <ImageButton
-                android:id="@+id/b_Add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?android:selectableItemBackgroundBorderless"
-                android:contentDescription="Add"
-                android:src="@drawable/addition" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        tools:layout_editor_absoluteX="276dp" />
 
-            <!-- Subtract Button -->
-            <ImageButton
-                android:id="@+id/b_Subtract"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:background="?android:selectableItemBackgroundBorderless"
-                android:contentDescription="Subtract"
-                android:src="@drawable/subtract" />
-        </LinearLayout>
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="366dp" />
 
-        <!-- Small vertical spacing between the two rows -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-        <!-- Horizontal LinearLayout for the bottom row of buttons -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!-- Multiply Button -->
-            <ImageButton
-                android:id="@+id/b_Multiply"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?android:selectableItemBackgroundBorderless"
-                android:contentDescription="Multiply"
-                android:src="@drawable/multiply" />
-
-            <!-- Divide Button -->
-            <ImageButton
-                android:id="@+id/b_Divide"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:background="?android:selectableItemBackgroundBorderless"
-                android:contentDescription="Divide"
-                android:src="@drawable/division" />
-        </LinearLayout>
-    </LinearLayout>
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

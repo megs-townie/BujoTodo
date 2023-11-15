@@ -19,7 +19,9 @@ import java.util.List;
  */
 public class MainActivity extends Activity {
 
-    private View bouncingBallView = null;
+    // Casting as View hides methods that we added
+    //private View bouncingBallView = null;
+    private BouncingBallView bouncingBallView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,8 @@ public class MainActivity extends Activity {
         setContentView(bouncingBallView);
         Log.v("SENSORS", "onCreate bouncingBallView=" + bouncingBallView.toString());
 
+        // See can see newly added methods in bouncingBallView
+        // bouncingBallView.callMe();
 
         //Check sensors
         setupSensors();
