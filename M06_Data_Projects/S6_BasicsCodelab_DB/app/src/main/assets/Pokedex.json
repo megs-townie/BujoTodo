@@ -1,0 +1,979 @@
+[
+ {
+  "Number": 1,
+  "Name": "Bulbasaur",
+  "Type": "Grass",
+  "Evolution": "lvl 16",
+  "SpriteName": "p1"
+ },
+ {
+  "Number": 2,
+  "Name": "Ivysaur",
+  "Type": "Grass",
+  "Evolution": "lvl 32",
+  "SpriteName": "p2"
+ },
+ {
+  "Number": 3,
+  "Name": "Venusaur",
+  "Type": "Grass",
+  "SpriteName": "p3"
+ },
+ {
+  "Number": 4,
+  "Name": "Charmander",
+  "Type": "Fire",
+  "Evolution": "lvl 16",
+  "SpriteName": "p4"
+ },
+ {
+  "Number": 5,
+  "Name": "Charmeleon",
+  "Type": "Fire",
+  "Evolution": "lvl 32",
+  "SpriteName": "p5"
+ },
+ {
+  "Number": 6,
+  "Name": "Charizard",
+  "Type": "Fire",
+  "SpriteName": "p6"
+ },
+ {
+  "Number": 7,
+  "Name": "Squirtle",
+  "Type": "Water",
+  "Evolution": "lvl 16",
+  "SpriteName": "p7"
+ },
+ {
+  "Number": 8,
+  "Name": "Wartortle",
+  "Type": "Water",
+  "Evolution": "lvl 32",
+  "SpriteName": "p8"
+ },
+ {
+  "Number": 9,
+  "Name": "Blastoise",
+  "Type": "Water",
+  "SpriteName": "p9"
+ },
+ {
+  "Number": 10,
+  "Name": "Caterpie",
+  "Type": "Bug",
+  "Evolution": "lvl 7",
+  "SpriteName": "p10"
+ },
+ {
+  "Number": 11,
+  "Name": "Metapod",
+  "Type": "Bug",
+  "Evolution": "lvl 10",
+  "SpriteName": "p11"
+ },
+ {
+  "Number": 12,
+  "Name": "Butterfree",
+  "Type": "Bug",
+  "SpriteName": "p12"
+ },
+ {
+  "Number": 13,
+  "Name": "Weedle",
+  "Type": "Bug",
+  "Evolution": "lvl 7",
+  "SpriteName": "p13"
+ },
+ {
+  "Number": 14,
+  "Name": "Kakuna",
+  "Type": "Bug",
+  "Evolution": "lvl 10",
+  "SpriteName": "p14"
+ },
+ {
+  "Number": 15,
+  "Name": "Beedrill",
+  "Type": "Bug",
+  "SpriteName": "p15"
+ },
+ {
+  "Number": 16,
+  "Name": "Pidgey",
+  "Type": "Normal",
+  "Evolution": "lvl 18",
+  "SpriteName": "p16"
+ },
+ {
+  "Number": 17,
+  "Name": "Pidgeotto",
+  "Type": "Normal",
+  "Evolution": "lvl 36",
+  "SpriteName": "p17"
+ },
+ {
+  "Number": 18,
+  "Name": "Pidgeot",
+  "Type": "Normal",
+  "SpriteName": "p18"
+ },
+ {
+  "Number": 19,
+  "Name": "Rattata",
+  "Type": "Normal",
+  "Evolution": "lvl 20",
+  "SpriteName": "p19"
+ },
+ {
+  "Number": 20,
+  "Name": "Raticate",
+  "Type": "Normal",
+  "SpriteName": "p20"
+ },
+ {
+  "Number": 21,
+  "Name": "Spearow",
+  "Type": "Normal",
+  "Evolution": "lvl 20",
+  "SpriteName": "p21"
+ },
+ {
+  "Number": 22,
+  "Name": "Fearow",
+  "Type": "Normal",
+  "SpriteName": "p22"
+ },
+ {
+  "Number": 23,
+  "Name": "Ekans",
+  "Type": "Poison",
+  "Evolution": "lvl 22",
+  "SpriteName": "p23"
+ },
+ {
+  "Number": 24,
+  "Name": "Arbok",
+  "Type": "Poison",
+  "SpriteName": "p24"
+ },
+ {
+  "Number": 25,
+  "Name": "Pikachu",
+  "Type": "Electric",
+  "Evolution": "Thunder Stone",
+  "SpriteName": "p25"
+ },
+ {
+  "Number": 26,
+  "Name": "Raichu",
+  "Type": "Electric",
+  "SpriteName": "p26"
+ },
+ {
+  "Number": 27,
+  "Name": "Sandshrew",
+  "Type": "Ground",
+  "Evolution": "lvl 22",
+  "SpriteName": "p27"
+ },
+ {
+  "Number": 28,
+  "Name": "Sandslash",
+  "Type": "Ground",
+  "SpriteName": "p28"
+ },
+ {
+  "Number": 29,
+  "Name": "Nidoran♀",
+  "Type": "Poison",
+  "Evolution": "lvl 16",
+  "SpriteName": "p29"
+ },
+ {
+  "Number": 30,
+  "Name": "Nidorina",
+  "Type": "Poison",
+  "Evolution": "Moon Stone",
+  "SpriteName": "p30"
+ },
+ {
+  "Number": 31,
+  "Name": "Nidoqueen",
+  "Type": "Poison",
+  "SpriteName": "p31"
+ },
+ {
+  "Number": 32,
+  "Name": "Nidoran♂",
+  "Type": "Poison",
+  "Evolution": "lvl 16",
+  "SpriteName": "p32"
+ },
+ {
+  "Number": 33,
+  "Name": "Nidorino",
+  "Type": "Poison",
+  "Evolution": "Moon Stone",
+  "SpriteName": "p33"
+ },
+ {
+  "Number": 34,
+  "Name": "Nidoking",
+  "Type": "Poison",
+  "SpriteName": "p34"
+ },
+ {
+  "Number": 35,
+  "Name": "Clefairy",
+  "Type": "Fairy",
+  "Evolution": "Moon Stone",
+  "SpriteName": "p35"
+ },
+ {
+  "Number": 36,
+  "Name": "Clefable",
+  "Type": "Fairy",
+  "SpriteName": "p36"
+ },
+ {
+  "Number": 37,
+  "Name": "Vulpix",
+  "Type": "Fire",
+  "Evolution": "Fire Stone",
+  "SpriteName": "p37"
+ },
+ {
+  "Number": 38,
+  "Name": "Ninetales",
+  "Type": "Fire",
+  "SpriteName": "p38"
+ },
+ {
+  "Number": 39,
+  "Name": "Jigglypuff",
+  "Type": "Normal",
+  "Evolution": "Moon Stone",
+  "SpriteName": "p39"
+ },
+ {
+  "Number": 40,
+  "Name": "Wigglytuff",
+  "Type": "Normal",
+  "SpriteName": "p40"
+ },
+ {
+  "Number": 41,
+  "Name": "Zubat",
+  "Type": "Poison",
+  "Evolution": "lvl 22",
+  "SpriteName": "p41"
+ },
+ {
+  "Number": 42,
+  "Name": "Golbat",
+  "Type": "Poison",
+  "SpriteName": "p42"
+ },
+ {
+  "Number": 43,
+  "Name": "Oddish",
+  "Type": "Grass",
+  "Evolution": "lvl 21",
+  "SpriteName": "p43"
+ },
+ {
+  "Number": 44,
+  "Name": "Gloom",
+  "Type": "Grass",
+  "Evolution": "Leaf Stone",
+  "SpriteName": "p44"
+ },
+ {
+  "Number": 45,
+  "Name": "Vileplume",
+  "Type": "Grass",
+  "SpriteName": "p45"
+ },
+ {
+  "Number": 46,
+  "Name": "Paras",
+  "Type": "Bug",
+  "Evolution": "lvl 24",
+  "SpriteName": "p46"
+ },
+ {
+  "Number": 47,
+  "Name": "Parasect",
+  "Type": "Bug",
+  "SpriteName": "p47"
+ },
+ {
+  "Number": 48,
+  "Name": "Venonat",
+  "Type": "Bug",
+  "Evolution": "lvl 31",
+  "SpriteName": "p48"
+ },
+ {
+  "Number": 49,
+  "Name": "Venomoth",
+  "Type": "Bug",
+  "SpriteName": "p49"
+ },
+ {
+  "Number": 50,
+  "Name": "Diglett",
+  "Type": "Ground",
+  "Evolution": "lvl 26",
+  "SpriteName": "p50"
+ },
+ {
+  "Number": 51,
+  "Name": "Dugtrio",
+  "Type": "Ground",
+  "SpriteName": "p51"
+ },
+ {
+  "Number": 52,
+  "Name": "Meowth",
+  "Type": "Normal",
+  "Evolution": "lvl 28",
+  "SpriteName": "p52"
+ },
+ {
+  "Number": 53,
+  "Name": "Persian",
+  "Type": "Normal",
+  "SpriteName": "p53"
+ },
+ {
+  "Number": 54,
+  "Name": "Psyduck",
+  "Type": "Water",
+  "Evolution": "lvl 33",
+  "SpriteName": "p54"
+ },
+ {
+  "Number": 55,
+  "Name": "Golduck",
+  "Type": "Water",
+  "SpriteName": "p55"
+ },
+ {
+  "Number": 56,
+  "Name": "Mankey",
+  "Type": "Fighting",
+  "Evolution": "lvl 28",
+  "SpriteName": "p56"
+ },
+ {
+  "Number": 57,
+  "Name": "Primeape",
+  "Type": "Fighting",
+  "SpriteName": "p57"
+ },
+ {
+  "Number": 58,
+  "Name": "Growlithe",
+  "Type": "Fire",
+  "Evolution": "Fire Stone",
+  "SpriteName": "p58"
+ },
+ {
+  "Number": 59,
+  "Name": "Arcanine",
+  "Type": "Fire",
+  "SpriteName": "p59"
+ },
+ {
+  "Number": 60,
+  "Name": "Poliwag",
+  "Type": "Water",
+  "Evolution": "lvl 25",
+  "SpriteName": "p60"
+ },
+ {
+  "Number": 61,
+  "Name": "Poliwhirl",
+  "Type": "Water",
+  "Evolution": "Water Stone",
+  "SpriteName": "p61"
+ },
+ {
+  "Number": 62,
+  "Name": "Poliwrath",
+  "Type": "Water",
+  "SpriteName": "p62"
+ },
+ {
+  "Number": 63,
+  "Name": "Abra",
+  "Type": "Psychic",
+  "Evolution": "lvl 16",
+  "SpriteName": "p63"
+ },
+ {
+  "Number": 64,
+  "Name": "Kadabra",
+  "Type": "Psychic",
+  "Evolution": "Link Cable",
+  "SpriteName": "p64"
+ },
+ {
+  "Number": 65,
+  "Name": "Alakazam",
+  "Type": "Psychic",
+  "SpriteName": "p65"
+ },
+ {
+  "Number": 66,
+  "Name": "Machop",
+  "Type": "Fighting",
+  "Evolution": "lvl 28",
+  "SpriteName": "p66"
+ },
+ {
+  "Number": 67,
+  "Name": "Machoke",
+  "Type": "Fighting",
+  "Evolution": "Link Cable",
+  "SpriteName": "p67"
+ },
+ {
+  "Number": 68,
+  "Name": "Machamp",
+  "Type": "Fighting",
+  "SpriteName": "p68"
+ },
+ {
+  "Number": 69,
+  "Name": "Bellsprout",
+  "Type": "Grass",
+  "Evolution": "lvl 21",
+  "SpriteName": "p69"
+ },
+ {
+  "Number": 70,
+  "Name": "Weepinbell",
+  "Type": "Grass",
+  "Evolution": "Leaf Stone",
+  "SpriteName": "p70"
+ },
+ {
+  "Number": 71,
+  "Name": "Victreebel",
+  "Type": "Grass",
+  "SpriteName": "p71"
+ },
+ {
+  "Number": 72,
+  "Name": "Tentacool",
+  "Type": "Water",
+  "Evolution": "lvl 30",
+  "SpriteName": "p72"
+ },
+ {
+  "Number": 73,
+  "Name": "Tentacruel",
+  "Type": "Water",
+  "SpriteName": "p73"
+ },
+ {
+  "Number": 74,
+  "Name": "Geodude",
+  "Type": "Rock",
+  "Evolution": "lvl 25",
+  "SpriteName": "p74"
+ },
+ {
+  "Number": 75,
+  "Name": "Graveler",
+  "Type": "Rock",
+  "Evolution": "Link Cable",
+  "SpriteName": "p75"
+ },
+ {
+  "Number": 76,
+  "Name": "Golem",
+  "Type": "Rock",
+  "SpriteName": "p76"
+ },
+ {
+  "Number": 77,
+  "Name": "Ponyta",
+  "Type": "Fire",
+  "Evolution": "lvl 40",
+  "SpriteName": "p77"
+ },
+ {
+  "Number": 78,
+  "Name": "Rapidash",
+  "Type": "Fire",
+  "SpriteName": "p78"
+ },
+ {
+  "Number": 79,
+  "Name": "Slowpoke",
+  "Type": "Water",
+  "Evolution": "lvl 37",
+  "SpriteName": "p79"
+ },
+ {
+  "Number": 80,
+  "Name": "Slowbro",
+  "Type": "Water",
+  "SpriteName": "p80"
+ },
+ {
+  "Number": 81,
+  "Name": "Magnemite",
+  "Type": "Electric",
+  "Evolution": "lvl 30",
+  "SpriteName": "p81"
+ },
+ {
+  "Number": 82,
+  "Name": "Magneton",
+  "Type": "Electric",
+  "SpriteName": "p82"
+ },
+ {
+  "Number": 83,
+  "Name": "Farfetch'd",
+  "Type": "Normal",
+  "SpriteName": "p83"
+ },
+ {
+  "Number": 84,
+  "Name": "Doduo",
+  "Type": "Normal",
+  "Evolution": "lvl 31",
+  "SpriteName": "p84"
+ },
+ {
+  "Number": 85,
+  "Name": "Dodrio",
+  "Type": "Normal",
+  "SpriteName": "p85"
+ },
+ {
+  "Number": 86,
+  "Name": "Seel",
+  "Type": "Water",
+  "Evolution": "lvl 34",
+  "SpriteName": "p86"
+ },
+ {
+  "Number": 87,
+  "Name": "Dewgong",
+  "Type": "Water",
+  "SpriteName": "p87"
+ },
+ {
+  "Number": 88,
+  "Name": "Grimer",
+  "Type": "Poison",
+  "Evolution": "lvl 38",
+  "SpriteName": "p88"
+ },
+ {
+  "Number": 89,
+  "Name": "Muk",
+  "Type": "Poison",
+  "SpriteName": "p89"
+ },
+ {
+  "Number": 90,
+  "Name": "Shellder",
+  "Type": "Water",
+  "Evolution": "Water Stone",
+  "SpriteName": "p90"
+ },
+ {
+  "Number": 91,
+  "Name": "Cloyster",
+  "Type": "Water",
+  "SpriteName": "p91"
+ },
+ {
+  "Number": 92,
+  "Name": "Gastly",
+  "Type": "Ghost",
+  "Evolution": "lvl 25",
+  "SpriteName": "p92"
+ },
+ {
+  "Number": 93,
+  "Name": "Haunter",
+  "Type": "Ghost",
+  "Evolution": "Link Cable",
+  "SpriteName": "p93"
+ },
+ {
+  "Number": 94,
+  "Name": "Gengar",
+  "Type": "Ghost",
+  "SpriteName": "p94"
+ },
+ {
+  "Number": 95,
+  "Name": "Onix",
+  "Type": "Rock",
+  "SpriteName": "p95"
+ },
+ {
+  "Number": 96,
+  "Name": "Drowzee",
+  "Type": "Psychic",
+  "Evolution": "lvl 26",
+  "SpriteName": "p96"
+ },
+ {
+  "Number": 97,
+  "Name": "Hypno",
+  "Type": "Psychic",
+  "SpriteName": "p97"
+ },
+ {
+  "Number": 98,
+  "Name": "Krabby",
+  "Type": "Water",
+  "Evolution": "lvl 28",
+  "SpriteName": "p98"
+ },
+ {
+  "Number": 99,
+  "Name": "Kingler",
+  "Type": "Water",
+  "SpriteName": "p99"
+ },
+ {
+  "Number": 100,
+  "Name": "Voltorb",
+  "Type": "Electric",
+  "Evolution": "lvl 30",
+  "SpriteName": "p100"
+ },
+ {
+  "Number": 101,
+  "Name": "Electrode",
+  "Type": "Electric",
+  "SpriteName": "p101"
+ },
+ {
+  "Number": 102,
+  "Name": "Exeggcute",
+  "Type": "Grass",
+  "Evolution": "Leaf Stone",
+  "SpriteName": "p102"
+ },
+ {
+  "Number": 103,
+  "Name": "Exeggutor",
+  "Type": "Grass",
+  "SpriteName": "p103"
+ },
+ {
+  "Number": 104,
+  "Name": "Cubone",
+  "Type": "Ground",
+  "Evolution": "lvl 28",
+  "SpriteName": "p104"
+ },
+ {
+  "Number": 105,
+  "Name": "Marowak",
+  "Type": "Ground",
+  "SpriteName": "p105"
+ },
+ {
+  "Number": 106,
+  "Name": "Hitmonlee",
+  "Type": "Fighting",
+  "Evolution": "Hitmonchan",
+  "SpriteName": "p106"
+ },
+ {
+  "Number": 107,
+  "Name": "Hitmonchan",
+  "Type": "Fighting",
+  "SpriteName": "p107"
+ },
+ {
+  "Number": 108,
+  "Name": "Lickitung",
+  "Type": "Normal",
+  "SpriteName": "p108"
+ },
+ {
+  "Number": 109,
+  "Name": "Koffing",
+  "Type": "Poison",
+  "Evolution": "lvl 35",
+  "SpriteName": "p109"
+ },
+ {
+  "Number": 110,
+  "Name": "Weezing",
+  "Type": "Poison",
+  "SpriteName": "p110"
+ },
+ {
+  "Number": 111,
+  "Name": "Rhyhorn",
+  "Type": "Ground",
+  "Evolution": "lvl 42",
+  "SpriteName": "p111"
+ },
+ {
+  "Number": 112,
+  "Name": "Rhydon",
+  "Type": "Ground",
+  "SpriteName": "p112"
+ },
+ {
+  "Number": 113,
+  "Name": "Chansey",
+  "Type": "Normal",
+  "SpriteName": "p113"
+ },
+ {
+  "Number": 114,
+  "Name": "Tangela",
+  "Type": "Grass",
+  "SpriteName": "p114"
+ },
+ {
+  "Number": 115,
+  "Name": "Kangaskhan",
+  "Type": "Normal",
+  "SpriteName": "p115"
+ },
+ {
+  "Number": 116,
+  "Name": "Horsea",
+  "Type": "Water",
+  "Evolution": "lvl 32",
+  "SpriteName": "p116"
+ },
+ {
+  "Number": 117,
+  "Name": "Seadra",
+  "Type": "Water",
+  "SpriteName": "p117"
+ },
+ {
+  "Number": 118,
+  "Name": "Goldeen",
+  "Type": "Water",
+  "Evolution": "lvl 33",
+  "SpriteName": "p118"
+ },
+ {
+  "Number": 119,
+  "Name": "Seaking",
+  "Type": "Water",
+  "SpriteName": "p119"
+ },
+ {
+  "Number": 120,
+  "Name": "Staryu",
+  "Type": "Water",
+  "Evolution": "Water Stone",
+  "SpriteName": "p120"
+ },
+ {
+  "Number": 121,
+  "Name": "Starmie",
+  "Type": "Water",
+  "SpriteName": "p121"
+ },
+ {
+  "Number": 122,
+  "Name": "Mr. Mime",
+  "Type": "Psychic",
+  "SpriteName": "p122"
+ },
+ {
+  "Number": 123,
+  "Name": "Scyther",
+  "Type": "Bug",
+  "SpriteName": "p123"
+ },
+ {
+  "Number": 124,
+  "Name": "Jynx",
+  "Type": "Ice",
+  "SpriteName": "p124"
+ },
+ {
+  "Number": 125,
+  "Name": "Electabuzz",
+  "Type": "Electric",
+  "SpriteName": "p125"
+ },
+ {
+  "Number": 126,
+  "Name": "Magmar",
+  "Type": "Fire",
+  "SpriteName": "p126"
+ },
+ {
+  "Number": 127,
+  "Name": "Pinsir",
+  "Type": "Bug",
+  "SpriteName": "p127"
+ },
+ {
+  "Number": 128,
+  "Name": "Tauros",
+  "Type": "Normal",
+  "SpriteName": "p128"
+ },
+ {
+  "Number": 129,
+  "Name": "Magikarp",
+  "Type": "Water",
+  "Evolution": "lvl 20",
+  "SpriteName": "p129"
+ },
+ {
+  "Number": 130,
+  "Name": "Gyarados",
+  "Type": "Water",
+  "SpriteName": "p130"
+ },
+ {
+  "Number": 131,
+  "Name": "Lapras",
+  "Type": "Water",
+  "SpriteName": "p131"
+ },
+ {
+  "Number": 132,
+  "Name": "Ditto",
+  "Type": "Normal",
+  "SpriteName": "p132"
+ },
+ {
+  "Number": 133,
+  "Name": "Eevee",
+  "Type": "Normal",
+  "Evolution": "Water\/Thunder\/Fire Stone",
+  "SpriteName": "p133"
+ },
+ {
+  "Number": 134,
+  "Name": "Vaporeon",
+  "Type": "Water",
+  "SpriteName": "p134"
+ },
+ {
+  "Number": 135,
+  "Name": "Jolteon",
+  "Type": "Electric",
+  "SpriteName": "p135"
+ },
+ {
+  "Number": 136,
+  "Name": "Flareon",
+  "Type": "Fire",
+  "SpriteName": "p136"
+ },
+ {
+  "Number": 137,
+  "Name": "Porygon",
+  "Type": "Normal",
+  "SpriteName": "p137"
+ },
+ {
+  "Number": 138,
+  "Name": "Omanyte",
+  "Type": "Rock",
+  "Evolution": "lvl 40",
+  "SpriteName": "p138"
+ },
+ {
+  "Number": 139,
+  "Name": "Omastar",
+  "Type": "Rock",
+  "SpriteName": "p139"
+ },
+ {
+  "Number": 140,
+  "Name": "Kabuto",
+  "Type": "Rock",
+  "Evolution": "lvl 40",
+  "SpriteName": "p140"
+ },
+ {
+  "Number": 141,
+  "Name": "Kabutops",
+  "Type": "Rock",
+  "SpriteName": "p141"
+ },
+ {
+  "Number": 142,
+  "Name": "Aerodactyl",
+  "Type": "Rock",
+  "SpriteName": "p142"
+ },
+ {
+  "Number": 143,
+  "Name": "Snorlax",
+  "Type": "Normal",
+  "SpriteName": "p143"
+ },
+ {
+  "Number": 144,
+  "Name": "Articuno",
+  "Type": "Ice",
+  "SpriteName": "p144"
+ },
+ {
+  "Number": 145,
+  "Name": "Zapdos",
+  "Type": "Electric",
+  "SpriteName": "p145"
+ },
+ {
+  "Number": 146,
+  "Name": "Moltres",
+  "Type": "Fire",
+  "SpriteName": "p146"
+ },
+ {
+  "Number": 147,
+  "Name": "Dratini",
+  "Type": "Dragon",
+  "Evolution": "lvl 30",
+  "SpriteName": "p147"
+ },
+ {
+  "Number": 148,
+  "Name": "Dragonair",
+  "Type": "Dragon",
+  "Evolution": "lvl 55",
+  "SpriteName": "p148"
+ },
+ {
+  "Number": 149,
+  "Name": "Dragonite",
+  "Type": "Dragon",
+  "SpriteName": "p149"
+ },
+ {
+  "Number": 150,
+  "Name": "Mewtwo",
+  "Type": "Psychic",
+  "SpriteName": "p150"
+ },
+ {
+  "Number": 151,
+  "Name": "Mew",
+  "Type": "Psychic",
+  "SpriteName": "p151"
+ }
+]

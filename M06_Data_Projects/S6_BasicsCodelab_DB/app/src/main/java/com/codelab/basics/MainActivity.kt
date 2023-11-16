@@ -18,9 +18,9 @@
 
 package com.codelab.basics
 
+import com.codelab.basics.ui.theme.getTypeColor
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.animateContentSize
@@ -28,7 +28,6 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -57,159 +56,180 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.codelab.basics.ui.theme.BasicsCodelabTheme
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.unit.Dp
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.text.style.TextAlign
+import com.codelab.basics.ui.theme.PokemonGbFontFamily
+import androidx.compose.ui.unit.sp
+import com.codelab.basics.ui.theme.CustomRed
+import kotlinx.coroutines.delay
+
+
 
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Get records from the DB
-        val DBtest = DBClass(this@MainActivity)
-        Log.d("CodeLab_DB", "onCreate: ")
+        val dbClass = DBClass(this)
+        val pokemonRecords = dbClass.getPokemonRecords()
 
-        // Then the real data
         setContent {
             BasicsCodelabTheme {
-                MyApp(modifier = Modifier.fillMaxSize()
-                , names = DBtest.get2DRecords().toList())
+                MyApp(modifier = Modifier.fillMaxSize(), pokemonData = pokemonRecords.toList())
             }
         }
-
     }
 }
 
 @Composable
-fun MyApp(modifier: Modifier = Modifier,
-          names: List<Array<String>>
-) {
+fun MyApp(modifier: Modifier = Modifier, pokemonData: List<Array<String>>) {
     var shouldShowOnboarding by rememberSaveable { mutableStateOf(true) }
-    var invalidate by remember { mutableStateOf(names) }
 
-    Surface(modifier, color = MaterialTheme.colorScheme.background) {
+    Surface(modifier = modifier.fillMaxSize(),
+        color = CustomRed // Set the background color to red
+    ) {
         if (shouldShowOnboarding) {
             OnboardingScreen(onContinueClicked = { shouldShowOnboarding = false })
         } else {
-            Greetings(names=names)
+            PokemonList(pokemonData = pokemonData)
         }
     }
 }
-
 @Composable
-fun OnboardingScreen(
-    onContinueClicked: () -> Unit,
-    modifier: Modifier = Modifier
-) {
+fun OnboardingScreen(onContinueClicked: () -> Unit) {
     Column(
-        modifier = modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Welcome to the Basics Codelab!")
+        Text(
+            "Welcome to the Pokémon Database!",
+            textAlign = TextAlign.Center, // Center the text alignment
+            modifier = Modifier.padding(horizontal = 16.dp) // Add padding for better centering
+        )
         Button(
-            modifier = Modifier.padding(vertical = 24.dp),
-            onClick = onContinueClicked
+            onClick = onContinueClicked,
+            modifier = Modifier.padding(24.dp)
         ) {
-            Text("Continue")
+            Text("Go Catch 'em all!")
         }
     }
 }
 
-
 @Composable
-private fun Greetings(
-    modifier: Modifier = Modifier,
-    names: List<Array<String>>
-    //names: List<String> = List(1000) { "$it" }   // Original sample was list of 1000 ints
-) {
+fun PokemonList(modifier: Modifier = Modifier, pokemonData: List<Array<String>>) {
     LazyColumn(modifier = modifier.padding(vertical = 4.dp)) {
-        items(items = names) { name ->
-            Greeting(name = name)
-            Log.d("CodeLab_DB", "name[0] = $name[0]")
-            Log.d("CodeLab_DB", "name[1] = $name[1]")
+        items(items = pokemonData) { data ->
+            PokemonCard(pokemon = data)
         }
     }
 }
 
 @Composable
-private fun Greeting(name: Array<String>) {
-    Card(
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primary
-        ),
-        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
-    ) {
-        CardContent(name)
-        Log.d("CodeLab_DB", "Greeting: ")
-    }
-}
-
-@Composable
-private fun CardContent(name: Array<String>) {
+private fun PokemonCard(pokemon: Array<String>) {
+    val context = LocalContext.current
     var expanded by remember { mutableStateOf(false) }
 
-    Log.d("CodeLab_DB", "name = $name ")
-    Log.d("CodeLab_DB", "name = $name[0] ")
-    Log.d("CodeLab_DB", "name = $name[1] ")
-    val n0 = name[0]  // try log of a simple val
-    val n1 = name[1]
-    Log.d("CodeLab_DB", "n0 = $n0 ")
-    Log.d("CodeLab_DB", "n1 = $n1 ")
+    // Retrieve image resource
+    val imageResId = context.resources.getIdentifier(pokemon[5], "drawable", context.packageName)
+    val imagePainter = if (imageResId != 0) painterResource(id = imageResId) else painterResource(id = R.drawable.pokemon_logo)
 
-    Row(
+    Card(
+        colors = CardDefaults.cardColors(containerColor = getTypeColor(pokemon[3])),
         modifier = Modifier
-            .padding(12.dp)
-            .animateContentSize(
-                animationSpec = spring(
-                    dampingRatio = Spring.DampingRatioMediumBouncy,
-                    stiffness = Spring.StiffnessLow
-                )
-            )
+            .padding(vertical = 4.dp, horizontal = 8.dp)
+            .fillMaxWidth()
     ) {
-        Column(
+        Row(
             modifier = Modifier
-                .weight(1f)
                 .padding(12.dp)
+                .animateContentSize(animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = Spring.StiffnessLow)),
+            verticalAlignment = Alignment.CenterVertically // This will center the image vertically
         ) {
-            Text(text = "Hello, ")
-            Text(
-                text = name[0], style = MaterialTheme.typography.headlineMedium.copy(
-                    fontWeight = FontWeight.ExtraBold
-                )
+            // Image on the left, vertically centered
+            Image(
+                painter = imagePainter,
+                contentDescription = "Pokemon Sprite",
+                modifier = Modifier.size(100.dp),
+                contentScale = ContentScale.Fit
             )
-            if (expanded) {
+
+            // Text and other components next to the image
+            Column(
+                modifier = Modifier
+                    .padding(start = 16.dp) // Add some space between the image and text
+            ) {
                 Text(
-                    text = (name[1])
-//                    text = ("Composem ipsum color sit lazy, " +
-//                            "padding theme elit, sed do bouncy. ").repeat(4),
+                    text = "#${pokemon[2]} ${pokemon[1]}",
+                    style = MaterialTheme.typography.headlineMedium.copy(
+                        fontFamily = PokemonGbFontFamily, // Custom font
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 18.sp // Adjust the size as needed
+                    )
+                )
+
+                // Expandable content
+                if (expanded) {
+                    Spacer(Modifier.height(8.dp)) // Space between name/number and type
+
+                    // Type text shown when expanded
+                    Text(
+                        text = "Type: ${pokemon[3]}",
+                        style = MaterialTheme.typography.bodyLarge.copy(fontFamily = PokemonGbFontFamily) // Custom font with default bodyLarge style
+                    )
+
+                    // Evolution text shown when expanded
+                    Text(
+                        text = if (pokemon[4].isNotEmpty() && pokemon[4] != "Does not evolve") "Evolution: ${pokemon[4]}" else "",
+                        style = MaterialTheme.typography.bodyLarge.copy(
+                            fontFamily = PokemonGbFontFamily,
+                            fontWeight = FontWeight.Normal,
+                            fontSize = 14.sp) // Custom font with default bodyLarge style
+                    )
+                }
+            }
+
+            Spacer(Modifier.weight(1f)) // This will push the IconButton to the end
+
+            // Icon button to expand and collapse card details
+            IconButton(
+                onClick = { expanded = !expanded },
+                modifier = Modifier.align(Alignment.CenterVertically)
+            ) {
+                Icon(
+                    imageVector = if (expanded) Filled.ExpandLess else Filled.ExpandMore,
+                    contentDescription = if (expanded) stringResource(R.string.show_less) else stringResource(R.string.show_more)
                 )
             }
         }
-        IconButton(onClick = { expanded = !expanded }) {
-            Icon(
-                imageVector = if (expanded) Filled.ExpandLess else Filled.ExpandMore,
-                contentDescription = if (expanded) {
-                    stringResource(R.string.show_less)
-                } else {
-                    stringResource(R.string.show_more)
-                }
-            )
-        }
     }
 }
 
+@Composable
+private fun calculateImageSize(screenWidth: Dp): Dp {
+    // Define image size based on screen width
+    return when {
+        screenWidth < 400.dp -> 80.dp  // Smaller size for small screens
+        screenWidth < 600.dp -> 100.dp // Medium size for medium screens
+        else -> 120.dp                  // Larger size for large screens
+    }
+}
 @Preview(
     showBackground = true,
     widthDp = 320,
     uiMode = UI_MODE_NIGHT_YES,
     name = "DefaultPreviewDark"
 )
-//@Preview(showBackground = true, widthDp = 320)
-//@Composable
-//fun DefaultPreview() {
-//    BasicsCodelabTheme {
-//        Greetings()
-//    }
-//}
+
 
 @Preview(showBackground = true, widthDp = 320, heightDp = 320)
 @Composable
@@ -219,10 +239,3 @@ fun OnboardingPreview() {
     }
 }
 
-//@Preview
-//@Composable
-//fun MyAppPreview() {
-//    BasicsCodelabTheme {
-//        MyApp(Modifier.fillMaxSize())
-//    }
-//}
