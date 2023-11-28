@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <color name="MineralGreen">#486359</color>
+        <color name="Oxley">#91C7B1</color>
+        <color name="CapePalliser">#6E3A2E</color>
+        <color name="AntiqueBrass">#CA7D58</color>
+        <color name="Blush">#F2A099</color>
+        <color name="White">#FFFFFF</color>
+
+</resources>

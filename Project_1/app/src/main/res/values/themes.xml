@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Project_1" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Set the primary colors for the theme -->
+        <item name="colorPrimary">@color/MineralGreen</item>
+        <item name="colorPrimaryDark">@color/MineralGreen</item>
+        <item name="colorAccent">@color/Blush</item>
+        <item name="android:textColor">@color/Oxley</item>
+        <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Colored</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+</resources>
