@@ -1,7 +1,7 @@
-# # Project Title: TodoApp
+# # Project Title: Bujo Todo
 
 ## Overview
-TodoApp is an Android application designed to help users manage their daily tasks efficiently. 
+Bujo Todo is an Android application designed to help users manage their daily tasks efficiently. 
 The app provides a simple and intuitive interface for adding, deleting, and tracking tasks.
 This app was created as 1 of 3 final projects for Mobile App Dev as part of IT-Programming 
     at NSCC
