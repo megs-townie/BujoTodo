@@ -53,4 +53,4 @@ Contributions to TodoApp are welcome. If you wish to contribute:
 
 ## Contact
 - Developer: megs-townie
-- Project Link: https://github.com/yourusername/TodoApp
+- Project Link: https://github.com/megs-townie/TodoApp
