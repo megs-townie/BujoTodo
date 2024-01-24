@@ -1,4 +1,4 @@
-# # Project Title: Bujo Todo
+## Bujo Todo
 
 ## Overview
 Bujo Todo is an Android application designed to help users manage their daily tasks efficiently. 
